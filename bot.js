@@ -20,21 +20,11 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '!Rules') { 
-     	message.reply('***__DYZER_YT__***  
-•==============================•
-•1► :no_entry_sign: لا تنشر سيرفرات دسكورد بالعام او بالخاص
-
-•2►:no_entry_sign: عدم السب والشتم على الادارة والأعضاء
-
-•3►:no_entry_sign: احترم اللاعبين الاّخرين ولا تزعجهم
-
-•4►:no_entry_sign: ممنوع طلب الحسابات
-
-•5►:no_entry_sign: ممنوع السبام
-•==============================•');
+     	message.reply('***__DYZER_YT__***  • ============================         •1►: no_entry_sign: Do not publish DSCord servers in public or private                     •2►: no_entry_sign: Not insulting and insulting the administration and members                     •3►: no_entry_sign: Respect other players and do not bother them                               •4►: no_entry_sign: Accounts are not allowed                                         •5►: no_entry_sign: Spam is forbidden                                      •============================);
                       
     }
 });
+
 
 client.on('message', message => {
     if (message.content === '-Channel') {
