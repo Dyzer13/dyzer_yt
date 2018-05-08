@@ -28,6 +28,7 @@ client.on('message', message => {
     if (message.content === '-Channel') {
     	message.reply('Subscrbie***__DYZER_YTChannel__***:https://www.youtube.com/channel/UC6Zwte0sirqK2oAoy3AaBbA');
   	}
+});
 
 
 // THIS  MUST  BE  THIS  WAY
