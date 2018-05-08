@@ -31,7 +31,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content === '-Channel') {
+    if (message.content === '-Clear') {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
     if(!args[0]) return message.channel.send("no");
        message.channel.bulkDelete(args[0]).then(() => {
