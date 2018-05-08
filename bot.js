@@ -5,35 +5,10 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-module.exports.run = async (bot, message, args) => {
-
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
-  if(!args[0]) return message.channel.send("no");
-  message.channel.bulkDelete(args[0]).then(() => {
-  message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));
-});
-
-}
-
-module.exports.help = {
-  name: "clear"
-}
-module.exports.run = async (bot, message, args) => {
-
-      if(!message.member.hasPermission("ADMINISTRATOR")) return;
-      const sayMessage = args.join(" ");
-      message.delete().catch();
-      message.channel.send(sayMessage);
-
-}
-
-module.exports.help = {
-  name: "say"
-}
 
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('pong');
+    if (message.content === '!help') {
+    	message.reply('Pls Wait For Bot He Will Updated');
   	}
 });
 
@@ -54,6 +29,13 @@ client.on('message', message => {
     	message.reply('Subscrbie***__DYZER_YTChannel__***:https://www.youtube.com/channel/UC6Zwte0sirqK2oAoy3AaBbA');
   	}
 });
+
+client.on('message', message => {
+    if (message.content === '-Channel') {
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
+    if(!args[0]) return message.channel.send("no");
+    message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
