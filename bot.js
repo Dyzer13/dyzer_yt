@@ -4,6 +4,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
     console.log('I am ready!');
 });
+
 module.exports.run = async (bot, message, args) => {
 
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
@@ -16,6 +17,18 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name: "clear"
+}
+module.exports.run = async (bot, message, args) => {
+
+      if(!message.member.hasPermission("ADMINISTRATOR")) return;
+      const sayMessage = args.join(" ");
+      message.delete().catch();
+      message.channel.send(sayMessage);
+
+}
+
+module.exports.help = {
+  name: "say"
 }
 
 client.on('message', message => {
