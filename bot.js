@@ -20,7 +20,19 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '!Rules') { 
-     	message.reply('***__DYZER_YT__***              1-No Spaming              2-No Give me Rank              3-No Give me a Account Minecraft              4-No Send any Discord server here              5-No Send Any Video in Chat              6-No How You Create Bot or Som ');
+     	message.reply('***__DYZER_YT__***  
+•==============================•
+•1► :no_entry_sign: لا تنشر سيرفرات دسكورد بالعام او بالخاص
+
+•2►:no_entry_sign: عدم السب والشتم على الادارة والأعضاء
+
+•3►:no_entry_sign: احترم اللاعبين الاّخرين ولا تزعجهم
+
+•4►:no_entry_sign: ممنوع طلب الحسابات
+
+•5►:no_entry_sign: ممنوع السبام
+•==============================•');
+                      
     }
 });
 
