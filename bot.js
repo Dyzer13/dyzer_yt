@@ -17,18 +17,17 @@ client.on('message', message => {
   	}
 });
 
-});
-
 client.on('message', message => {
     if (message.content === '!Rules') {
-    	message.reply('***__DYZER_YT__***  
-1- No Spaming 
-2- No Give me Rank
-3- No Give me a Account Minecraft
-4- No Send any Discord server here 
-5- No Send Any Video in Chat
-6- No How You Create Bot or Som');
-  	}
+      (message.reply('***__DYZER_YT__***'); 
+      (message.reply('1-No Spaming');
+      (message.reply('2-No Give me Rank');
+      (message.reply('3-No Give me a Account Minecraft'); 
+      (message.reply('4-No Send any Discord server here ');
+      (message.reply('5-No Send Any Video in Chat');
+      (message.reply('6-No How You Create Bot or Som');
+  	
+    }
 });
 
 });
