@@ -72,30 +72,6 @@ client.on('message', message => {
 }
 });
 
-client.on('message', message => {
-if (message.content.includes('discord.gg')){
-if(!message.channel.guild) return message.reply ('')
-if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
-message.channel.send('kick <@' + message.author.id + '>')
-message.delete() 
-}
-}
-if (message.content.startsWith("kick ")) {
-if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
-var member= message.mentions.members.first();
-member.kick().then((member) => {
-message.channel.sendMessage("", {embed: {
-author: {
-},
-title: 'بسبب النشر ' + member.displayName + ' تم طرد',
-color: 490101,
-}
-});
-}
-) 
-}
-});
-
 var prefix = "$"
 client.on('message', message => {
   if (message.author.x5bz) return;
@@ -133,19 +109,6 @@ client.on('message', message => {
   message.channel.send({
     embed : banembed
   })
-}
-});
-
-client.on("message", message => {
- if (message.content === "$help") {
-  const embed = new Discord.RichEmbed()
-      .setColor("#ffff00")
-        .setDescription(`**السيرفرات**🌐 **__${client.guilds.size}__**
-**المستخدمين**👥 **__${client.users.size}__**
-**القنوات**📚 **__${client.channels.size}__** `)
-
-message.author.sendEmbed(embed)
-
 }
 });
 
@@ -525,9 +488,6 @@ if(!men) { // اذا لم يكن هناك منشن
 
 
 });
-
-
-bot.login ('NDQ3ODg2Mzg3NTgxMjg4NDQ4.DeOIgg.2c5rPsVO4lokE4HllVxLra40zM8')
 
 const dot = new Discord.Client();
 client.on('message', message => {
