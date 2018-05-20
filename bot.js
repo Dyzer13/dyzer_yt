@@ -28,9 +28,6 @@ client.user.setGame(`Flix-Host`,"http://twitch.tv/clo_wiin")
   console.log('')
 });
 
-
-
-
 client.login('NDQzMDkxNzM3NTc0MTEzMjgw.DeNx9Q.wtt6WFsvKm8M7403gNG1oFhMYOY');
 
 client.on("guildMemberAdd", function(member) {
@@ -72,6 +69,7 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return;
   return;
 }
 });
+
 client.on('guildMemberRemove', member => {
     var embed = new Discord.RichEmbed()
     .setAuthor(member.user.username, member.user.avatarURL)
