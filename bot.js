@@ -4,7 +4,7 @@ const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Flix-Host`,"http://twitch.tv/clo_wiin")
+client.user.setGame(`FlixHost`,"http://twitch.tv/clo_wiin")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -27,6 +27,10 @@ client.user.setGame(`Flix-Host`,"http://twitch.tv/clo_wiin")
   console.log('')
   console.log('')
 });
+
+
+
+
 client.login('NDQzMDkxNzM3NTc0MTEzMjgw.DeN5bg.nzXKeaBuXsaasYmDwTx7F11oMr8');
 
 client.on('guildMemberAdd', member => {
