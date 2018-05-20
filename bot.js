@@ -28,7 +28,7 @@ client.user.setGame(`Flix-Host`,"http://twitch.tv/clo_wiin")
   console.log('')
 });
 
-client.login('NDQzMDkxNzM3NTc0MTEzMjgw.DeNx9Q.wtt6WFsvKm8M7403gNG1oFhMYOY');
+client.login('NDQzMDkxNzM3NTc0MTEzMjgw.DeN5bg.nzXKeaBuXsaasYmDwTx7F11oMr8');
 
 client.on("guildMemberAdd", function(member) {
     const wc = member.guild.channels.find("name", "member-log")
