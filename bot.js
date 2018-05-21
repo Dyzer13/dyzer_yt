@@ -148,28 +148,6 @@ client.on("message", message => {
     }
 });
 
- client.on('message' , message => {
-     if (message.content === prefix + "servers") {
-
-if(!message.channel.guild) return;
-  if(message.content < 1023) return
-  const Embed11 = new Discord.RichEmbed()
-.setAuthor(client.user.username,client.user.avatarURL)
-.setThumbnail(client.user.avatarURL)
-.setDescription(`***مجموع السيرفرات ${client.guilds.size} \n \n${client.guilds.map(guilds => `- ${guilds.name}`).join('\n')}***`)
-         message.channel.sendEmbed(Embed11)
-    }
-});
-
-client.on('message', message => {
-  if(message.content === prefix + "inv") {
-      let embed = new Discord.RichEmbed ()
-      embed.setTitle("**:arrow_right: Invite Games-Bot!**")
-      .setURL("https://discordapp.com/api/oauth2/authorize?client_id=%20435522887324270603&permissions=1878523121&scope=bot");
-       message.channel.sendEmbed(embed);
-                  }
-});
-
 client.on('message', message => {
    if (message.content === "*قرعه 25") {
   message.channel.sendMessage(Math.floor(Math.random() * 25));
