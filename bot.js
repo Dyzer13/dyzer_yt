@@ -35,17 +35,18 @@ client.on('message', msg => {
   command = command.slice(prefix.length);
   let args = msg.content.split(" ").slice(1);
 
-    if(command === "purge") {
+    if(command === "clear") {
         const emoji = client.emojis.find("name", "wastebasket")
     let textxt = args.slice(0).join("");
     if(msg.member.hasPermission("MANAGE_MESSAGES")) {
     if (textxt == "") {
-    msg.channel.send("ضع عددا من الرسائل التي تريد مسحها");
+        msg.delete().then
+    msg.channel.send("***```ضع عدد الرسائل التي تريد مسحها 👌```***").then(m => m.delete(3000));
 } else {
     msg.delete().then
     msg.delete().then
     msg.channel.bulkDelete(textxt);
-    msg.channel.send(`${emoji} Deleted ` + "`" + textxt + "` messages");
+        msg.channel.send("```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000));
         }    
     }
 }
@@ -340,7 +341,7 @@ client.on('message', message => {
 .addField('     **|.kick ** ' ,' **if You need kick player in your server do  Command** ')
 .addField('     **|.Mute**  ' ,' **if You need mute player in your server create Roles  Muted and do command** ')
 .addField('     **|rserver ** ' , '**lock Bot Join Server **') 
-.addField('     **|.purge** ' , '**if You need clear Chat do command **') 
+.addField('     **|.clear** ' , '**if You need clear Chat do command **') 
 .addField('     **|>cv** ' ,' ** if You need create Channel Voice do command**')
 .addField('     **|%report** ' , '**if You need report player do command  **')
 .addField('     **|.roles  ** ' ,' **  if You need see all your Roles do command  ** ')
