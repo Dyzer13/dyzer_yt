@@ -194,3 +194,40 @@ client.on('message', message => {
   })
 }
 });
+
+ const Discord = require('discord.js');
+
+exports.run = async (bot, message, args) => {
+
+
+
+     if(message.author.bot) return;
+
+ let user = message.mentions.users.first();
+        if (!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("**ليس لديك برمشن MANAGE MESSAGES**");
+                    let reason = message.content.split(" ").slice(2).join(" ");
+                if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+        if (!reason) return message.reply("**اكتب سبب التحذير**");
+    var channel =message.guild.channels.find('name', 'watchdog')
+
+        message.channel.sendMessage(args.join("  "))
+        message.delete();
+
+  if (!channel) return message.reply('يجب ان يكون هناك شات بأسم watchdog');
+
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('Subject | الموضوع', 'Warn | تحذير')
+    .addField('User | الشخص', `${user.tag}`)
+    .addField('Moderator | الأداري', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Warn | التحذير', reason);
+    message.delete();
+    return bot.channels.get(channel.id).sendEmbed(embed);
+
+
+}
+
+exports.help = {
+  name: "warn"
+} 
