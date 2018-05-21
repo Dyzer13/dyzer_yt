@@ -333,28 +333,23 @@ if(!message.channel.guild) return;
     }
 });
 
-    var prefix = "DanBot";
- 
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "مسح")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
-        var msg;
-        msg = parseInt();
-      
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم مسح الشات",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل ",
-        footer: {
-          text: "Dyzer_YT#4682"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-     
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **bc1** ' ,' **بث جماعي + للكل + مطور** ')
+.addField('     **bc2**  ' ,' **بث جماعي + للكل + غير مطور** ')
+.addField('     **bc3** ' , '**بث جماعي + للأونلاين + غير مطور + منشن للشخص**') 
+.addField('     **bc4** ' , '**بث جماعي + للكل + غير مطور + منشن للشخص**') 
+.addField('     **ping** ' ,' ** سرعة اتصال البوت**')
+.addField('     **كت تويت** ' , '**هذي لعبة الكت تويت**')
+.addField('     **هل تعلم ** ' ,' **  لعبة هل تعلم  ** ')
+.addField('     **clear ** ' ,' **  لمسح الشات بدون رقم  ** ')
+.addField('     **say ** ' ,' **  عشان يتكلم عنك  ** ')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
 });
-
 
 client.login('NDQ3ODg2Mzg3NTgxMjg4NDQ4.DeOGbw.AvfLA4pl7fddAyh7g53UOxaL63Y');
 
