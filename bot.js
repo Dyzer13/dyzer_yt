@@ -146,4 +146,13 @@ if (msg.content.startsWith(`%report`)) {
 }
 })
 
+client.on('message', message => {
+    if (message.content === '.roles') {
+        var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
+        const embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .addField('Roles:',`**[${roles}]**`)
+        message.channel.sendEmbed(embed);
+    }
+});
 
