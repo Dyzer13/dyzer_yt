@@ -115,3 +115,186 @@ client.on('message', message => {
      
     }
 });
+
+client.on("message", message => {
+    var prefix = ".";
+    const command = message.content.split(" ")[0];
+
+    if(command == prefix+"vc"){
+
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('you do not have permission to perform this action!');
+        }
+
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("please mention the member")
+            return;
+        }
+
+    if(!member.voiceChannel){
+    message.reply("i can't include voice channel for member!")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+        
+
+
+    
+      });
+     });
+    }
+});
+client.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', 'not active'));
+});
+
+client.on('message', message => {                      
+    if(!message.channel.guild) return;
+       if(message.content.startsWith(prefix + 'active')) {
+        let modlog = client.channels.find('name', 'الـــــــــشات_العام');
+       if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+       message.channel.sendMessage(`اضغط على الصح عشان تتفعل`).then(msg => {
+        
+        
+        msg.react('✅')
+       .then(() => msg.react('✅'))
+     
+     
+
+       let activeFilter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+     
+       let active = msg.createReactionCollector(activeFilter, { time: 15000 });
+     
+                                                        
+                               active.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("name", "active"));
+                                   message.member.removeRole(message.guild.roles.find("name", "not active"));
+                                   msg.delete();
+                                   message.channel.send(`**تم تفعيلك استمتع.**`).then(m => m.delete(1000));
+     
+})
+})
+}
+});
+
+ client.on('message' , message => {
+     if (message.content === prefix + "servers") {
+
+if(!message.channel.guild) return;
+  if(message.content < 1023) return
+  const Embed11 = new Discord.RichEmbed()
+.setAuthor(client.user.username,client.user.avatarURL)
+.setThumbnail(client.user.avatarURL)
+.setDescription(`***مجموع السيرفرات ${client.guilds.size} \n \n${client.guilds.map(guilds => `- ${guilds.name}`).join('\n')}***`)
+         message.channel.sendEmbed(Embed11)
+    }
+});
+
+client.on('message', message => {
+  if(message.content === prefix + "inv") {
+      let embed = new Discord.RichEmbed ()
+      embed.setTitle("**:arrow_right: Invite Games-Bot!**")
+      .setURL("https://discordapp.com/api/oauth2/authorize?client_id=%20435522887324270603&permissions=1878523121&scope=bot");
+       message.channel.sendEmbed(embed);
+                  }
+});
+
+client.on('message', message => {
+   if (message.content === "*قرعه 25") {
+  message.channel.sendMessage(Math.floor(Math.random() * 25));
+    }
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+      if(!message.member.hasPermission('ADMINISTRATOR'))
+        message.delete()
+    return message.reply(`** يمنع نشر الروابط ! **`)
+    }
+});
+
+lient.on('message', message => {
+if(message.content.startsWith(prefix+"fortnite")) {
+const Fortnite = require('fortnite');
+const ft = new Fortnite('1010ab16-8f67-414a-a0b5-13d9e8b93954');
+//!testing
+let args = message.content.split(" ").slice(1)
+if(!args[0]) return message.channel.send(`**${prefix}fortnite <username> <platform (pc, xbnl, psn)>**`);
+let username = args[0];
+let platform = args[1] || "pc";
+///by™¦༺♚ƙἶղց|MaS♚༺¦™#9506
+let data = ft.getInfo(username, platform).then(data => {
+let stats = data.lifetimeStats;
+let kills = stats.find(s => s.stat == "kills");
+let wins = stats.find(s => s.stat == "wins");
+let kd = stats.find(s => s.stat == "kd");
+let mplay = stats.find(s => s.stat == "matchesPlayed");
+let tplay = stats.find(s => s.stat == "timePlayed");
+let score = stats.find(s => s.stat == "score");
+let top25s = stats.find(s => s.stat == "top25s");
+let url = `https://fortnitetracker.com/profile/${data.platform}/${data.username}`
+let embed = new Discord.RichEmbed ()
+}
+.setAuthor(data.username)
+.setColor("#ff6a00")
+.addField("Kills", kills.value, true)
+.addField("Wins", wins.value, true)
+.addField("K/D", kd.value, true)
+.addField("Matches Played", mplay.value, true)
+.addField("Time Played", tplay.value, true)
+.addField("Score", score.value, true)
+.addField("Top 25s", top25s.value, true)
+.addField("More Info", url, true)
+message.channel.send(embed);
+
+}).catch(e => {
+console.log(e);
+message.channel.send("** Didn't find that username! **")
+    }
+});
+ 
+client.on('message', message => {   
+if (message.author.boss) return;
+var prefix = ".";
+if (!message.content.startsWith(prefix)) return;
+let command = message.content.split(" ")[0];
+command = command.slice(prefix.length);
+let args = message.content.split(" ").slice(1);
+if (command == "Mute") {
+if (!message.channel.guild) return;
+if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+let user = message.mentions.users.first();
+let muteRole = message.guild.roles.find("name", "Muted");
+if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
+let reason = message.content.split(" ").slice(2).join(" ");
+message.guild.member(user).addRole(muteRole);
+const muteembed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(`Muted!`, user.displayAvatarURL)
+.setThumbnail(user.displayAvatarURL)
+.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
+.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
+.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
+.addField("User", user, true)  
+message.channel.send({embed : muteembed});
+var muteembeddm = new Discord.RichEmbed()
+.setAuthor(`Muted!`, user.displayAvatarURL)
+.setDescription(`
+${user} انت معاقب بميوت كتابي بسبب مخالفة القوانين 
+
+ ${message.author.tag} تمت معاقبتك بواسطة
+
+[ ${reason} ] : السبب
+
+اذا كانت العقوبة عن طريق الخطأ تكلم مع المسؤلين 
+`)
+.setFooter(`في سيرفر : ${message.guild.name}`)
+.setColor("RANDOM")
+ user.send( muteembeddm);
+}  
