@@ -195,12 +195,6 @@ client.on('message', message => {
 }
 });
 
- const Discord = require('discord.js');
-
-exports.run = async (bot, message, args) => {
-
-
-
      if(message.author.bot) return;
 
  let user = message.mentions.users.first();
