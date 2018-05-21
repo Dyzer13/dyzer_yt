@@ -28,13 +28,6 @@ client.user.setGame(`DanBot`,"http://twitch.tv/clo_wiin")
   console.log('')
 });
 
-
-
-
-client.login('NDQ3ODg2Mzg3NTgxMjg4NDQ4.DeOGbw.AvfLA4pl7fddAyh7g53UOxaL63Y');
-
-
-
 client.on('message', msg => {
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
@@ -361,3 +354,9 @@ if(!message.channel.guild) return;
 
      
 });
+
+
+client.login('NDQ3ODg2Mzg3NTgxMjg4NDQ4.DeOGbw.AvfLA4pl7fddAyh7g53UOxaL63Y');
+
+
+
