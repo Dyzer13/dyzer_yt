@@ -339,3 +339,25 @@ if(!message.channel.guild) return;
          message.channel.sendEmbed(Embed11)
     }
 });
+
+    var prefix = "DanBot";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "مسح")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم مسح الشات",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل ",
+        footer: {
+          text: "Dyzer_YT#4682"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+});
