@@ -339,13 +339,13 @@ client.on('message', message => {
 .setThumbnail(message.author.avatarURL)
 .addField('     **|.kick ** ' ,' **if You need kick player in your server do  Command** ')
 .addField('     **|.Mute**  ' ,' **if You need mute player in your server create Roles  Muted and do command** ')
-.addField('     **|rserver ** ' , '**بث جماعي + للأونلاين + غير مطور + منشن للشخص**') 
+.addField('     **|rserver ** ' , '**lock Bot Join Server **') 
 .addField('     **|.purge** ' , '**if You need clear Chat do command **') 
 .addField('     **|>cv** ' ,' ** if You need create Channel Voice do command**')
 .addField('     **|%report** ' , '**if You need report player do command  **')
 .addField('     **|.roles  ** ' ,' **  if You need see all your Roles do command  ** ')
 .addField('     **|.UnMute ** ' ,' **  if You need Unmute Player do command   ** ')
-.addField('     **|*bc ** ' ,' **  عشان يتكلم عنك  ** ')
+.addField('     **|*bc ** ' ,' **  if You need brodcast in Privet chat !  ** ')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
