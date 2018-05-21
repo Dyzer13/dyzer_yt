@@ -465,7 +465,6 @@ message.channel.send({embed});
 }
 
 });
-
 client.on('message', function(message) {
     if(message.content.startsWith(prefix + 'roll')) {
         let args = message.content.split(" ").slice(1);
@@ -479,6 +478,7 @@ client.on('message', function(message) {
           return;
         }
     }
+});
 
 client.login('NDQ3ODg2Mzg3NTgxMjg4NDQ4.DeOGbw.AvfLA4pl7fddAyh7g53UOxaL63Y');
 
