@@ -299,14 +299,22 @@ var unmuteembeddm = new Discord.RichEmbed()
 }
 });
 
-bot.on('ready', () => {
-    console.log(`[Start] ${new Date()}`);
-    console.log(`[INFO] ${bot.user.username}`)
-    console.log(`[INFO] ${bot.users.size}`)
-    console.log(`[INFO] ${bot.guilds.size}`)
-    console.log(`[BOT] Auto Role `)
-});
-
-bot.on('guildMemberAdd', (member) => {
-member.addRole(member.guild.roles.find('name', role));
-});
+client.on('message', message => {
+    if (!message.channel.guild) return;
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("***  ليس معك صلاحيات  ***")
+    var prefix = "!";
+       if (message.content ===   prefix + "add role") {
+    message.channel.send("<@" + message.author.id + ">  ***  جاري اعطاء الرتبة للاعضاء كما طلبت  *** ")
+    message.guild.members.forEach(m => {
+    m.addRole(message.guild.roles.find('name', 'اسم الرتبة'))
+    })
+    }
+    
+       if (message.content ===   prefix + "remove role") {
+    message.channel.send("<@" + message.author.id + ">  ***  جاري اعطاء الرتبة للاعضاء كما طلبت  *** ")
+    message.guild.members.forEach(m => {
+    m.removeRole(message.guild.roles.find('name', 'اسم الرتبة'))
+    })
+    }
+    
+    });
