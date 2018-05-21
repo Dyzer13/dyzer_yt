@@ -195,33 +195,46 @@ client.on('message', message => {
 }
 });
 
-     if(message.author.bot) return;
+               client.on('message', message => {
+                    var prefix = "#";
 
- let user = message.mentions.users.first();
-        if (!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("**ليس لديك برمشن MANAGE MESSAGES**");
-                    let reason = message.content.split(" ").slice(2).join(" ");
-                if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-        if (!reason) return message.reply("**اكتب سبب التحذير**");
-    var channel =message.guild.channels.find('name', 'watchdog')
+           if (message.content.startsWith(prefix + "id")) {
+                     if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات ❌`);
 
-        message.channel.sendMessage(args.join("  "))
-        message.delete();
-
-  if (!channel) return message.reply('يجب ان يكون هناك شات بأسم watchdog');
-
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('Subject | الموضوع', 'Warn | تحذير')
-    .addField('User | الشخص', `${user.tag}`)
-    .addField('Moderator | الأداري', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Warn | التحذير', reason);
-    message.delete();
-    return bot.channels.get(channel.id).sendEmbed(embed);
-
-
+                message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+        moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+       
+    .setColor("#0a0909")
+    .setAuthor(message.author.username, message.author.avatarURL) 
+.addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+.addField(': عدد الدعوات', inviteCount,false)
+.setFooter("-")  
+    message.channel.sendEmbed(id);
+})
 }
+    
 
-exports.help = {
-  name: "warn"
-} 
+         
+     });
