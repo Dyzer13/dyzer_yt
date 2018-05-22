@@ -480,12 +480,9 @@ client.on('message', function(message) {
     }
 });
 
-const arraySort = require('array-sort'),
-      table = require('table');
-
 client.on('message' , async (message) => {
 
-    if(message.content.startsWith(prefix + "دعوات")) {
+    if(message.content.startsWith(prefix + "inv")) {
 
   let invites = await message.guild.fetchInvites();
 
