@@ -4,7 +4,7 @@ const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`DanBot`,"http://twitch.tv/clo_wiin")
+client.user.setGame(`Starbot`,"http://twitch.tv/clo_wiin")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
