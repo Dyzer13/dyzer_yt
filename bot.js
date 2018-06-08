@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '.'
 
-```css
 client.on('ready', function(){
     var ms = 10000 ;
     var setGame = [`+help ON ${client.guilds.size} Servers`,`.help ${client.users.size} Users`];
@@ -37,11 +36,11 @@ ch = -1
 }
 })
 
-```client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     var embed = new Discord.RichEmbed()
     .setAuthor(member.user.username, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
-    .setTitle(`Welcome tos server`)
+    .setTitle(`Welcome to Join server `)
     .setDescription(`**Thank You So much to join  **`)//t3gb_(:
     .setColor('GREEN')
 var channel =member.guild.channels.find('name', 'welcome')
@@ -242,34 +241,6 @@ if(command === `${prefix}message`) {
  }
 });
 
-client.on('message', message => {
-            if (message.content.startsWith(prefix - "help")) {
-        message.react("🎎 الاوامر العامة 🎎 ")
-     let embed = new Discord.RichEmbed()")
-.setThumbnail(message.author.avatarURL)
-.addField('     **-bc** ' ,' **لخاصية البرودكاست 📢** ')
-.addField('     **-id**  ' ,' **لظهور الايدي 👀** ')
-.addField('     **-ping** ' , '**لمعرفة بنق البوت 💡**') 
-.addField('     **-invite** ' , '**لدعوة البوت 📍**') 
-.addField('     **-support** ' ,' ** سيرفر الدعم الفني 📞**')
-.addField('     **-clear** ' ,' **  لمسح الشات مع الرقم 💭 ** ')
-.addField('     **-avatar** ' ,' **  للافاتار 💧 ** ')
-.addField('     **-roles** ' ,' **  للرتب الي بالسيرفر  ⭐** ')
-.addField('     **-server** ' ,' **  معلومات عن السيرفر  👑** ')
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-    }
-client.on('message', message => {
-            if (message.content.startsWith(prefix - "help")) {
-        message.react("🎮 اوامر الالعاب 🎮")
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('     **-مريم** ' ,' **لعبة مريم 👤** ')
-.addField('     **-كت تويت**  ' ,' **لعبة كت تويت🍂** ')
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-    }
-
   client.on('guildMemberRemove', member => {
 let channel = member.guild.channels.find('name', 'welcome');
 let memberavatar = member.user.avatarURL
@@ -315,46 +286,6 @@ module.exports.help = {
     name: "addrole"
 }
   
-client.on('message', message => {
-   if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'bc')) {
-if(!message.channel.guild) return message.channel.send('هذا الأمر فقط للسيرفرات').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('للأسف لا تمتلك صلاحية ADMINISTRATOR' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let request = Requested By ${message.author.username};
-if (!args) return message.reply('يجب عليك كتابة كلمة او جملة لإرسال البرودكاست');message.channel.send(**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \ ${args}`).then(msg => {
-msg.react('✅')
-.then(() => msg.react('❌'))
-.then(() =>msg.react('✅'))
-
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
-reaction1.on("collect", r => {
-message.channel.send(:ballot_box_with_check: | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members).then(m => m.delete(5000));
-message.guild.members.forEach(m => {
-var bc = new
-Discord.RichEmbed()
-.setColor('RANDOM')
-.setTitle('Broadcast')
-.addField('Server', message.guild.name)
-.addField('Sender', message.author.username)
-.addField('Message', args)
-.setThumbnail(message.author.avatarURL)
-client.users.forEach(message =>{
-message.sendMessage(args)
-})
-})
-reaction2.on("collect", r => {
-message.channel.send(Broadcast Canceled.`).then(m => m.delete(5000));
-msg.delete();
-})
-})
-
-});
-
 client.on('message', message => {
     if(message.content.includes('discord.gg')){
                                             if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
@@ -452,9 +383,7 @@ message.react("??")
         if (msg.content.startsWith(`!warn`)) {
           if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
            let args = msg.content.split(" ").slice(1);
-          if (!msg.mentions.members.first()) return msg.reply('
-منشن الشخص المحدد
-')
+          if (!msg.mentions.members.first()) return msg.reply ('منشن شخص لمطلوب ')
           if (!args[1]) return msg.reply('``اكتب السبب``')
           //غير اسم الروم او سوي روم بذا الاسم 
           if (msg.guild.channels.find('name', 'warns')) {
@@ -492,7 +421,30 @@ client.on("message", message => {
               client.users.get("315551239809138688").send({embed: SAMSUNG});
 });
   
+client.on("message", message => {
+    var prefix = "$"
+    if (!message.content.startsWith(prefix)) return;
+      let command = message.content.split(" ")[0];
+      command = command.slice(prefix.length);
+        if(command === "mcskin") {
+                const args = message.content.split(" ").slice(1).join(" ")
+        if (!args) return message.channel.send("** Type your skin name **");
+        const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
+    message.channel.send(image)
+        }
+    });
+  
+  client.on('message', message => {
+                var SAMSUNG = new Discord.RichEmbed()
+                .addField('** الـسيرفر** : ', `${message.guild.name}`,true)
+            .addField(' **الـمرسل ** : ', `${message.author.username}#${message.author.discriminator}`,true)
+            .addField(' **المنشن ** : ', `<@${message.author.id}>`,true)
+            .addField(' **الرسالة** : ', `${message.content}`)
+              .setThumbnail(message.guild.iconURL)
+              .setColor('RANDOM')
+              client.users.get("315551239809138688").send({embed: SAMSUNG});
+});
+  
 client.login('NDUwMDI0OTgwNTIxMTU2NjI5.DetPSw.HIskbHnzAWr7AT-HsP_VecgEzM0');
-
 
 
