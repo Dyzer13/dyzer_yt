@@ -21,6 +21,6 @@ client.on('ready', function(){
 });
 
 
-client.login('NDUwMDI0OTgwNTIxMTU2NjI5.DetPSw.HIskbHnzAWr7AT-HsP_VecgEzM0');
+client.login('NDU0NzkzODA2MjA2NzMwMjYw.DfypiQ.pPtOeGzrDYOdFNgRUIQFQMT0Roo');
 
 
