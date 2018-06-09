@@ -71,4 +71,4 @@ const fs = require("fs");// npm i fs
       })
       });
 
-bot.login("التوكن");
+bot.login("NDU0NzkzODA2MjA2NzMwMjYw.DfypiQ.pPtOeGzrDYOdFNgRUIQFQMT0Roo");
