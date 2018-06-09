@@ -43,4 +43,4 @@ let embed = new Discord.RichEmbed()
   channel.sendEmbed(embed);
 });
 
-bot.login("NDU0NzkzODA2MjA2NzMwMjYw.Dfy-8w.GqeX5cb_1vq45IJ2b0hq4PGvgy4");
+bot.login("NDU0NzkzODA2MjA2NzMwMjYw.Dfy_Vg.PP-2YxBrOn9XvbDXMCAO7ubL84c");
