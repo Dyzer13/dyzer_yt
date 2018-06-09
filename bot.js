@@ -21,34 +21,26 @@ client.on('ready', function(){
 });
 
 
+client.on('guildMemberRemove', member => {
+let channel = member.guild.channels.find('name', 'welcome');
+let memberavatar = member.user.avatarURL
+  if (!channel) return; 
+let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setThumbnail(memberavatar)
+    .addField('🎽 | الاسم :  ',`${member}`)
+    .addField('📢 | لقد غادر:' , `لقد خرج منا عضو هو , ${member}:cry: `)
+    .addField('🆔 | الايدي :', "**[" + `${member.id}` + "]**" )
+            .addField('➡| تبقا',`${member.guild.memberCount}`)
+           
+              .addField("الاسم:",`<@` + `${member.id}` + `>`, true)
+                
+                                 .addField('شكرا لدخولك سيرفر', `${member.guild.name}`,true)
+                                   
+ .setFooter("Top Bot")
+    .setTimestamp()
 
-client.on("message", message => {
-  if (!message.content.startsWith(prefix)) return;
-  if (message.author.bot) return;
-
-  if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
-    level: 0
-  };
-  let userData = points[message.author.id];
-  userData.points++;
-
-  let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
-  if (curLevel > userData.level) {
-    // Level up!
-    userData.level = curLevel;
-     message.reply(`**لقد وصلت الى المستوى ${curLevel}**`).then(m => m.delete(100000));
-  }
-
-  if (message.content.startsWith(prefix + "level")) {
-    
-      message.reply(` ** انت في المستوى ${userData.level}  مع ${userData.points} نقاط . ** `).then(m => m.delete(100000));
-
-  }
-  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
-  });
-
+  channel.sendEmbed(embed);
 });
 
 bot.login("NDU0NzkzODA2MjA2NzMwMjYw.Dfy9Ug.pgrVr1D-fD4AC58r4zGzxz07tm8");
